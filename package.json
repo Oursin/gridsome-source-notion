@@ -1,19 +1,18 @@
 {
   "name": "gridsome-source-notion",
-  "version": "1.1.0",
-  "description": "",
+  "version": "1.1.1",
+  "description": "Notion source for Gridsome",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "author": "Maxime Corbin",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Oursin/gridsome-source-notion.git"
+  },
+  "homepage": "https://github.com/Oursin/gridsome-source-notion",
   "keywords": ["gridsome-plugin"],
   "dependencies": {
     "@notionhq/client": "^0.4.6",
     "notion-exporter": "^0.1.2"
-  },
-  "devDependencies": {
-    "gridsome": "^0.7.23"
   }
 }
