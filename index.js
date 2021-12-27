@@ -37,9 +37,10 @@ module.exports = class NotionSource {
     for (const block of response.results) {
       //console.log(block)
       let content = await new NotionExporter(this.options.notionToken).getMdString(block.id);
-      //console.log(content)
+      console.log(content)
       content = this.removeProperties(content, block.properties);
       console.log(block.properties);
+      console.log(content)
       collection.addNode({
         id: block.id,
         path: `/${count++}/`,
@@ -56,13 +57,15 @@ module.exports = class NotionSource {
   }
 
   removeProperties(content, properties) {
-    const lines = content.split('\n');
+    let lines = content.split('\n');
+    lines.splice(0, 2);
     for (let p of Object.keys(properties)) {
       const pindex = lines.findIndex((l) => l.startsWith(p));
       if (pindex !== -1) {
-        lines.splice(pindex, 2);
+        lines.splice(pindex, 1);
       }
     }
+    lines.splice(0, 1);
     return lines.join('\n');
   }
 }
